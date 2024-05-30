@@ -44,9 +44,18 @@ We will be testing out the SP-Initiated SAML Flow:
     - Log in to your ZITADEL instance.
     - Go to Projects and select your Project or create a new Project.
       ![Create project](screenshots/zitadel_1.png)
-    - Create a new SAML Application.
-      ![Create app](screenshots/zitadel_1.png)
+    - Create a new Application by clicking on the `+` button.
+      ![Create app](screenshots/zitadel_2.png)
+    - Select SAML as the Application type and provide a name.
+      ![Create SAML app](screenshots/zitadel_3.png)
+    - You can provide your SAML SP configuration using any of the options given and we will provide a metadata file.
+      ![SAML Config](screenshots/zitadel_4.png)
     - Upload the `sp_metadata.xml` file.
+      ![Upload metadata file](screenshots/zitadel_5.png)
+    - Review and create the application.
+      ![Review](screenshots/zitadel_6.png)
+    - You can view the SAML endpoint URLs in the URLs tab.
+      ![URLs](screenshots/zitadel_7.png)
     - Obtain the IdP metadata URL file (`https://[your-ZITADEL-domain]/saml/v2/metadata`) from ZITADEL and replace the content of `idp_metadata.xml` with the provided IdP metadata.
 
 4. **Configuration**
