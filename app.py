@@ -10,7 +10,7 @@ import base64
 import zlib
 import xmltodict
 import json
-from urllib.parse import urlparse, parse_qs, quote_plus
+from urllib.parse import urlparse, parse_qs, quote
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.primitives import serialization
@@ -135,7 +135,7 @@ def generate_saml_request():
 @app.route('/sso', methods=['POST'])
 def sso():
     saml_request = request.form['saml_request']
-    encoded_saml_request = quote_plus(saml_request)  # Ensure the SAML request is URL encoded
+    encoded_saml_request = quote(saml_request)  # Ensure the SAML request is URL encoded
     redirect_url = f"{config_data['redirect_url']}?SAMLRequest={encoded_saml_request}"
     return redirect(redirect_url)
 
@@ -205,7 +205,7 @@ def logout():
         saml_request_encoded = base64.b64encode(deflated_logout_request).decode('utf-8')
 
         # Ensure the SAML request is URL encoded
-        encoded_saml_request = quote_plus(saml_request_encoded)
+        encoded_saml_request = quote(saml_request_encoded)
 
         # Formulate the logout URL
         logout_url = f"{config_data['idp_slo_url']}?SAMLRequest={encoded_saml_request}"
