@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SAML Request</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.css" rel="stylesheet" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        textarea {
+            width: 80%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>A Simple SAML Service Provider</h1>
+    <h2>SAML Request from the Service Provider</h2>
+    
+    <h3>Decoded SAML Request</h3>
+    <textarea class="language-xml" readonly>{{ decoded_saml_request }}</textarea>
+
+    <h3>Encoded SAML Request</h3>
+    <textarea readonly>{{ saml_request }}</textarea>
+
+    <!-- Generate SAML Request Button -->
+    <form action="{{ url_for('generate_saml_request') }}" method="post">
+        <button type="submit">Generate SAML Request</button>
+    </form>
+
+    <!-- SSO Button (will be enabled once a SAML request is generated) -->
+    {% if saml_request %}
+    <form action="{{ url_for('sso') }}" method="post">
+        <input type="hidden" name="saml_request" value="{{ saml_request }}">
+        <button type="submit">Login</button>
+    </form>
+    {% endif %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.js"></script>
+</body>
+</html>

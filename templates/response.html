@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SAML Response</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.css" rel="stylesheet" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        textarea {
+            width: 80%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>A Simple SAML Service Provider</h1>
+    <h2>SAML Response from the Identity Provider</h2>
+    <h3>User Info</h3>
+    <textarea readonly>{{ user_info }}</textarea>
+
+    <h3>Base64 Encoded SAML Response</h3>
+    <textarea readonly>{{ saml_response }}</textarea>
+
+    <h3>Decoded SAML Response</h3>
+    <textarea class="language-xml">{{ pretty_saml_response }}</textarea>
+
+    <!-- Logout Button -->
+    <form action="{{ url_for('logout') }}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.js"></script>
+</body>
+</html>
