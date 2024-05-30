@@ -1,0 +1,18 @@
+{
+    "entityid": "https://zitadel-test.sp/metadata",
+    "acs_url": "http://127.0.0.1:5000/acs",
+    "idp_slo_url": "https://my-instance-xtzfbc.zitadel.cloud/saml/v2/SLO",
+    "sp_slo_url": "http://127.0.0.1:5000/slo",
+    "redirect_url": "https://my-instance-xtzfbc.zitadel.cloud/saml/v2/SSO",
+    "idp_metadata_file": "idp_metadata.xml",
+    "key_file": "sp-key.pem",
+    "cert_file": "sp-cert.pem",
+    "xmlsec_binary": "/opt/homebrew/bin/xmlsec1",
+    "required_attributes": ["uid"],
+    "optional_attributes": ["mail"],
+    "authn_requests_signed": true,
+    "want_assertions_signed": true,
+    "want_response_signed": false,
+    "allow_unknown_attributes": true,
+    "debug": 1
+}
