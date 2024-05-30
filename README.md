@@ -27,8 +27,8 @@ We will be testing out the SP-Initiated SAML Flow:
 
 1. **Clone the Repository**
     ```sh
-    git clone https://github.com/your-username/saml-sp-zitadel.git
-    cd saml-sp-zitadel
+    git clone https://github.com/zitadel/python-saml-sp.git
+    cd python-saml-sp
     ```
 
 2. **Install Dependencies**
