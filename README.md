@@ -58,8 +58,6 @@ We will be testing out the SP-Initiated SAML Flow:
       ![URLs](screenshots/zitadel_7.png)
     - Obtain the IdP metadata URL file (`https://[your-ZITADEL-domain]/saml/v2/metadata`) from ZITADEL and replace the content of `idp_metadata.xml` with the provided IdP metadata.
 
-4. **Configuration**
-    Ensure the paths in the `app.py` file for `key_file`, `cert_file`, and `xmlsec_binary` are correct.
 
 ## Running the Application
 
