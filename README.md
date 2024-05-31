@@ -18,12 +18,8 @@ We will be testing out the SP-Initiated SAML Flow:
 ## Prerequisites
 
 - Python 3.x
-- Flask
-- pysaml2
-- Flask-CORS
-- xmltodict
-- cryptography
-- lxml
+- A ZITADEL instance on [ZITADEL Cloud](https://zitadel.com/signin) or your own self-hosted ZITADEL instance
+
 
 ## Setting Up
 
