@@ -1,5 +1,3 @@
-# !Alert - This is a Work in Progress
-
 # A SAML Service Provider with ZITADEL Integration
 
 This repository provides a simple SAML Service Provider (SP) setup to interact with ZITADEL as the Identity Provider (IdP). The application is built using Flask and the `pysaml2` library.
