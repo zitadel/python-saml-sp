@@ -4,5 +4,5 @@ Flask-Cors==3.0.10
 lxml==5.2.2
 pyOpenSSL==24.1.0
 pysaml2==7.5.0
-Werkzeug==2.2.2
+Werkzeug==3.0.3
 xmltodict==0.13.0
