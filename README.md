@@ -1,3 +1,5 @@
+# !Alert - This is a Work in Progress
+
 # A SAML Service Provider with ZITADEL Integration
 
 This repository provides a simple SAML Service Provider (SP) setup to interact with ZITADEL as the Identity Provider (IdP). The application is built using Flask and the `pysaml2` library.
@@ -27,8 +29,8 @@ We will be testing out the SP-Initiated SAML Flow:
 
 1. **Clone the Repository**
     ```sh
-    git clone https://github.com/your-username/saml-sp-zitadel.git
-    cd saml-sp-zitadel
+    git clone https://github.com/zitadel/python-saml-sp.git
+    cd python-saml-sp
     ```
 
 2. **Install Dependencies**
@@ -36,19 +38,28 @@ We will be testing out the SP-Initiated SAML Flow:
     ```sh
     python3 -m venv venv
     source venv/bin/activate
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
     ```
 
 3. **ZITADEL Configuration**
     You need to create a SAML app in your ZITADEL instance and upload the `sp_metadata.xml` file found in this repository. Follow these steps:
     - Log in to your ZITADEL instance.
     - Go to Projects and select your Project or create a new Project.
-    - Create a new SAML Application.
+      ![Create project](screenshots/zitadel_1.png)
+    - Create a new Application by clicking on the `+` button.
+      ![Create app](screenshots/zitadel_2.png)
+    - Select SAML as the Application type and provide a name.
+      ![Create SAML app](screenshots/zitadel_3.png)
+    - You can provide your SAML SP configuration using any of the options given and we will provide a metadata file.
+      ![SAML Config](screenshots/zitadel_4.png)
     - Upload the `sp_metadata.xml` file.
+      ![Upload metadata file](screenshots/zitadel_5.png)
+    - Review and create the application.
+      ![Review](screenshots/zitadel_6.png)
+    - You can view the SAML endpoint URLs in the URLs tab.
+      ![URLs](screenshots/zitadel_7.png)
     - Obtain the IdP metadata URL file (`https://[your-ZITADEL-domain]/saml/v2/metadata`) from ZITADEL and replace the content of `idp_metadata.xml` with the provided IdP metadata.
 
-4. **Configuration**
-    Ensure the paths in the `app.py` file for `key_file`, `cert_file`, and `xmlsec_binary` are correct.
 
 ## Running the Application
 
