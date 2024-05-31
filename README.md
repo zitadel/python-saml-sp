@@ -120,10 +120,7 @@ If you want to generate your own `sp-key.pem` and `sp-cert.pem` files, you can u
     openssl req -x509 -key sp-key.pem -in sp-csr.pem -out sp-cert.pem -days 365
     ```
     Replace `-days 365` with the desired validity period for the certificate.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+   
 
 ## Acknowledgements
 
