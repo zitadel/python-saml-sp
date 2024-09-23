@@ -1,4 +1,4 @@
-cryptography==42.0.7
+cryptography==43.0.1
 Flask==2.2.5
 Flask-Cors==5.0.0
 lxml==5.2.2
