@@ -67,6 +67,7 @@ def saml_client():
         'cert_file': config_data['cert_file'],
         'allow_unknown_attributes': config_data['allow_unknown_attributes'],
         'debug': config_data['debug'],
+        'xmlsec_binary': config_data['xmlsec_binary'],
     })
     return Saml2Client(config)
 
