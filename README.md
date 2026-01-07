@@ -57,7 +57,7 @@ We will be testing out the SP-Initiated SAML Flow:
    - Navigate to the IdP metadata URL file (`https://[your-ZITADEL-domain]/saml/v2/metadata`) from ZITADEL and replace the content of `idp_metadata.xml` with the provided IdP metadata.
 
 4. **Application Configuration**
-   Update `config.json` with your ZITADEL instance details. Specifically, ensure `idp_slo_url` and `redirect_url` point to your ZITADEL instance domain (e.g., `https://[your-domain].ka.zitadel.app/saml/v2/...` or `https://[your-domain].zitadel.cloud/saml/v2/...`).
+   Update `config.json` with your ZITADEL instance details. Specifically, ensure `idp_slo_url` and `redirect_url` point to your ZITADEL instance domain (e.g., `https://[your-domain].zitadel.cloud/saml/v2/...`).
 
 ## Running the Application
 
