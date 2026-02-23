@@ -18,56 +18,61 @@ We will be testing out the SP-Initiated SAML Flow:
 - Python 3.x
 - A ZITADEL instance on [ZITADEL Cloud](https://zitadel.com/signin) or your own self-hosted ZITADEL instance
 
-
 ## Setting Up
 
 1. **Clone the Repository**
-    ```sh
-    git clone https://github.com/zitadel/python-saml-sp.git
-    cd python-saml-sp
-    ```
+
+   ```sh
+   git clone https://github.com/zitadel/python-saml-sp.git
+   cd python-saml-sp
+   ```
 
 2. **Install Dependencies**
-    Make sure you have Python 3 installed. Then, create a virtual environment and install the required packages.
-    ```sh
-    python3 -m venv venv
-    source venv/bin/activate
-    pip3 install -r requirements.txt
-    ```
+   Make sure you have Python 3 installed. Then, create a virtual environment and install the required packages.
+
+   ```sh
+   python3 -m venv venv
+   source venv/bin/activate
+   pip3 install -r requirements.txt
+   ```
 
 3. **ZITADEL Configuration**
-    You need to create a SAML app in your ZITADEL instance and upload the `sp_metadata.xml` file found in this repository. Follow these steps:
-    - Log in to your ZITADEL instance.
-    - Go to Projects and select your Project or create a new Project.
-      ![Create project](screenshots/zitadel_1.png)
-    - Create a new Application by clicking on the `+` button.
-      ![Create app](screenshots/zitadel_2.png)
-    - Select SAML as the Application type and provide a name.
-      ![Create SAML app](screenshots/zitadel_3.png)
-    - You can provide your SAML SP configuration using any of the options given and we will provide a metadata file.
-      ![SAML Config](screenshots/zitadel_4.png)
-    - Upload the `sp_metadata.xml` file.
-      ![Upload metadata file](screenshots/zitadel_5.png)
-    - Review and create the application.
-      ![Review](screenshots/zitadel_6.png)
-    - You can view the SAML endpoint URLs in the URLs tab.
-      ![URLs](screenshots/zitadel_7.png)
-    - Obtain the IdP metadata URL file (`https://[your-ZITADEL-domain]/saml/v2/metadata`) from ZITADEL and replace the content of `idp_metadata.xml` with the provided IdP metadata.
+   You need to create a SAML app in your ZITADEL instance and upload the `sp_metadata.xml` file found in this repository. Follow these steps:
 
+   - Log in to your ZITADEL instance.
+   - Go to Projects and select your Project or create a new Project.
+     ![Create project](screenshots/zitadel_1.png)
+   - Create a new Application by clicking on the `+` button.
+     ![Create app](screenshots/zitadel_2.png)
+   - Select SAML as the Application type and provide a name.
+     ![Create SAML app](screenshots/zitadel_3.png)
+   - You can provide your SAML SP configuration using any of the options given and we will provide a metadata file.
+     ![SAML Config](screenshots/zitadel_4.png)
+   - Upload the `sp_metadata.xml` file.
+     ![Upload metadata file](screenshots/zitadel_5.png)
+   - Review and create the application.
+     ![Review](screenshots/zitadel_6.png)
+   - You can view the SAML endpoint URLs in the URLs tab.
+     ![URLs](screenshots/zitadel_7.png)
+   - Navigate to the IdP metadata URL file (`https://[your-ZITADEL-domain]/saml/v2/metadata`) from ZITADEL and replace the content of `idp_metadata.xml` with the provided IdP metadata.
+
+4. **Application Configuration**
+   Update `config.json` with your ZITADEL instance details. Specifically, ensure `idp_slo_url` and `redirect_url` point to your ZITADEL instance domain (e.g., `https://[your-domain].zitadel.cloud/saml/v2/...`).
 
 ## Running the Application
 
 1. **Set Environment Variables**
-    ```sh
-    export FLASK_APP=app.py
-    export FLASK_ENV=development
-    ```
+
+   ```sh
+   export FLASK_APP=app.py
+   export FLASK_ENV=development
+   ```
 
 2. **Run the Application**
-    ```sh
-    flask run
-    ```
-    The application should now be running on `http://127.0.0.1:5000`.
+   ```sh
+   flask run
+   ```
+   The application should now be running on `http://127.0.0.1:5000`.
 
 ## Endpoints
 
@@ -100,27 +105,25 @@ We will be testing out the SP-Initiated SAML Flow:
 If you want to generate your own `sp-key.pem` and `sp-cert.pem` files, you can use the following OpenSSL commands:
 
 1. **Generate the private key:**
-    ```sh
-    openssl genpkey -algorithm RSA -out sp-key.pem -aes256
-    ```
+
+   ```sh
+   openssl genpkey -algorithm RSA -out sp-key.pem -aes256
+   ```
 
 2. **Generate the certificate signing request (CSR):**
-    ```sh
-    openssl req -new -key sp-key.pem -out sp-csr.pem
-    ```
+
+   ```sh
+   openssl req -new -key sp-key.pem -out sp-csr.pem
+   ```
 
 3. **Generate the self-signed certificate:**
-    ```sh
-    openssl req -x509 -key sp-key.pem -in sp-csr.pem -out sp-cert.pem -days 365
-    ```
-    Replace `-days 365` with the desired validity period for the certificate.
-   
+   ```sh
+   openssl req -x509 -key sp-key.pem -in sp-csr.pem -out sp-cert.pem -days 365
+   ```
+   Replace `-days 365` with the desired validity period for the certificate.
 
 ## Acknowledgements
 
 - [Flask](https://flask.palletsprojects.com/)
 - [pysaml2](https://pysaml2.readthedocs.io/)
 - [ZITADEL](https://zitadel.com/)
-
-
-
